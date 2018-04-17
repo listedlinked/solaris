@@ -1,10 +1,10 @@
 Sample configuration files for:
 
-SystemD: solarisd.service
-Upstart: solarisd.conf
-OpenRC:  solarisd.openrc
-         solarisd.openrcconf
-CentOS:  solarisd.init
+SystemD: teslad.service
+Upstart: teslad.conf
+OpenRC:  teslad.openrc
+         teslad.openrcconf
+CentOS:  teslad.init
 
 have been made available to assist packagers in creating node packages here.
 

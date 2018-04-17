@@ -1,0 +1,26 @@
+# /etc/conf.d/teslad: config file for /etc/init.d/teslad
+
+# Config file location
+#BITCOIND_CONFIGFILE="/etc/tesla/tesla.conf"
+
+# What directory to write pidfile to?  (created and owned by $BITCOIND_USER)
+#BITCOIND_PIDDIR="/var/run/teslad"
+
+# What filename to give the pidfile
+#BITCOIND_PIDFILE="${BITCOIND_PIDDIR}/teslad.pid"
+
+# Where to write teslad data (be mindful that the blockchain is large)
+#BITCOIND_DATADIR="/var/lib/teslad"
+
+# User and group to own teslad process
+#BITCOIND_USER="tesla"
+#BITCOIND_GROUP="tesla"
+
+# Path to teslad executable
+#BITCOIND_BIN="/usr/bin/teslad"
+
+# Nice value to run teslad under
+#BITCOIND_NICE=0
+
+# Additional options (avoid -conf and -datadir, use flags above)
+BITCOIND_OPTS=""

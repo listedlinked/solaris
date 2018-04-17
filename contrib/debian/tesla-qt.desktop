@@ -1,0 +1,12 @@
+[Desktop Entry]
+Encoding=UTF-8
+Name=Tesla
+Comment=Tesla P2P Cryptocurrency
+Comment[fr]=Tesla, monnaie virtuelle cryptographique pair à pair
+Comment[tr]=Tesla, eşten eşe kriptografik sanal para birimi
+Exec=tesla-qt %u
+Terminal=false
+Type=Application
+Icon=tesla128
+MimeType=x-scheme-handler/tesla;
+Categories=Office;Finance;

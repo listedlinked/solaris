@@ -66,15 +66,15 @@ bin_PROGRAMS =
 TESTS =
 
 if BUILD_BITCOIND
-  bin_PROGRAMS += solarisd
+  bin_PROGRAMS += teslad
 endif
 
 if BUILD_BITCOIN_UTILS
-  bin_PROGRAMS += solaris-cli solaris-tx
+  bin_PROGRAMS += tesla-cli tesla-tx
 endif
 
 .PHONY: FORCE
-# solaris core #
+# tesla core #
 BITCOIN_CORE_H = \
   activemasternode.h \
   accumulators.h \
@@ -190,7 +190,7 @@ obj/build.h: FORCE
 	  $(abs_top_srcdir)
 libbitcoin_util_a-clientversion.$(OBJEXT): obj/build.h
 
-# server: shared between solarisd and solaris-qt
+# server: shared between teslad and tesla-qt
 libbitcoin_server_a_CPPFLAGS = $(BITCOIN_INCLUDES) $(MINIUPNPC_CPPFLAGS) $(EVENT_CFLAGS) $(EVENT_PTHREADS_CFLAGS)
 libbitcoin_server_a_SOURCES = \
   addrman.cpp \
@@ -236,7 +236,7 @@ libbitcoin_zmq_a_SOURCES = \
   zmq/zmqpublishnotifier.cpp
 endif
 
-# wallet: shared between solarisd and solaris-qt, but only linked
+# wallet: shared between teslad and tesla-qt, but only linked
 # when wallet enabled
 
 libbitcoin_wallet_a_CFLAGS = -fPIC
@@ -355,7 +355,7 @@ libzerocoin_libbitcoin_zerocoin_a_SOURCES = \
   libzerocoin/Params.cpp \
   libzerocoin/SerialNumberSignatureOfKnowledge.cpp
 
-# common: shared between solarisd, and solaris-qt and non-server tools
+# common: shared between teslad, and tesla-qt and non-server tools
 libbitcoin_common_a_CPPFLAGS = $(BITCOIN_INCLUDES)
 libbitcoin_common_a_SOURCES = \
   accumulators.cpp \
@@ -415,7 +415,7 @@ libbitcoin_util_a_SOURCES += compat/glibc_compat.cpp
 libbitcoin_util_a_SOURCES += compat/glibcxx_compat.cpp
 endif
 
-# cli: shared between solaris-cli and solaris-qt
+# cli: shared between tesla-cli and tesla-qt
 libbitcoin_cli_a_CPPFLAGS = $(BITCOIN_INCLUDES)
 libbitcoin_cli_a_SOURCES = \
   rpcclient.cpp \
@@ -425,7 +425,7 @@ nodist_libbitcoin_util_a_SOURCES = $(srcdir)/obj/build.h
 #
 
 # bitcoind binary #
-solarisd_LDADD = \
+teslad_LDADD = \
   $(LIBBITCOIN_SERVER) \
   $(LIBBITCOIN_COMMON) \
   $(LIBBITCOIN_UNIVALUE) \
@@ -437,26 +437,26 @@ solarisd_LDADD = \
   $(LIBSECP256K1)
 
 if ENABLE_ZMQ
-solarisd_LDADD += $(LIBBITCOIN_ZMQ) $(ZMQ_LIBS)
+teslad_LDADD += $(LIBBITCOIN_ZMQ) $(ZMQ_LIBS)
 endif
 
 if ENABLE_WALLET
-solarisd_LDADD += libbitcoin_wallet.a
+teslad_LDADD += libbitcoin_wallet.a
 endif
-solarisd_SOURCES = solarisd.cpp
+teslad_SOURCES = teslad.cpp
 #
 
 if TARGET_WINDOWS
-solarisd_SOURCES += solarisd-res.rc
+teslad_SOURCES += teslad-res.rc
 endif
 
-solarisd_LDADD += $(BOOST_LIBS) $(BDB_LIBS) $(SSL_LIBS) $(CRYPTO_LIBS) $(MINIUPNPC_LIBS) $(EVENT_PTHREADS_LIBS) $(EVENT_LIBS)
-solarisd_CPPFLAGS = $(BITCOIN_INCLUDES)
-solarisd_LDFLAGS = $(RELDFLAGS) $(AM_LDFLAGS) $(LIBTOOL_APP_LDFLAGS)
+teslad_LDADD += $(BOOST_LIBS) $(BDB_LIBS) $(SSL_LIBS) $(CRYPTO_LIBS) $(MINIUPNPC_LIBS) $(EVENT_PTHREADS_LIBS) $(EVENT_LIBS)
+teslad_CPPFLAGS = $(BITCOIN_INCLUDES)
+teslad_LDFLAGS = $(RELDFLAGS) $(AM_LDFLAGS) $(LIBTOOL_APP_LDFLAGS)
 
 
-# solaris-cli binary #
-solaris_cli_LDADD = \
+# tesla-cli binary #
+tesla_cli_LDADD = \
   $(LIBBITCOIN_CLI) \
   $(LIBBITCOIN_UTIL) \
   $(BOOST_LIBS) \
@@ -464,14 +464,14 @@ solaris_cli_LDADD = \
   $(CRYPTO_LIBS) \
   $(EVENT_LIBS)
 
-solaris_cli_SOURCES = \
-  solaris-cli.cpp
+tesla_cli_SOURCES = \
+  tesla-cli.cpp
 
-solaris_cli_CPPFLAGS = $(BITCOIN_INCLUDES) $(EVENT_CFLAGS)
+tesla_cli_CPPFLAGS = $(BITCOIN_INCLUDES) $(EVENT_CFLAGS)
 #
 
-# solaris-tx binary #
-solaris_tx_LDADD = \
+# tesla-tx binary #
+tesla_tx_LDADD = \
   $(LIBBITCOIN_UNIVALUE) \
   $(LIBBITCOIN_COMMON) \
   $(LIBBITCOIN_ZEROCOIN) \
@@ -481,15 +481,15 @@ solaris_tx_LDADD = \
   $(BOOST_LIBS) \
   $(CRYPTO_LIBS)
 
-solaris_tx_SOURCES = solaris-tx.cpp
-solaris_tx_CPPFLAGS = $(BITCOIN_INCLUDES)
+tesla_tx_SOURCES = tesla-tx.cpp
+tesla_tx_CPPFLAGS = $(BITCOIN_INCLUDES)
 #
-solaris_tx_LDFLAGS = $(RELDFLAGS) $(AM_LDFLAGS) $(LIBTOOL_APP_LDFLAGS)
+tesla_tx_LDFLAGS = $(RELDFLAGS) $(AM_LDFLAGS) $(LIBTOOL_APP_LDFLAGS)
 
 if TARGET_WINDOWS
-solaris_cli_SOURCES += solaris-cli-res.rc
+tesla_cli_SOURCES += tesla-cli-res.rc
 endif
-solaris_cli_LDFLAGS = $(RELDFLAGS) $(AM_LDFLAGS) $(LIBTOOL_APP_LDFLAGS)
+tesla_cli_LDFLAGS = $(RELDFLAGS) $(AM_LDFLAGS) $(LIBTOOL_APP_LDFLAGS)
 
 if BUILD_BITCOIN_LIBS
 include_HEADERS = script/bitcoinconsensus.h

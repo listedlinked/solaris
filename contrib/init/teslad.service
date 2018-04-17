@@ -1,0 +1,26 @@
+[Unit]
+Description=Tesla's distributed currency daemon
+After=network.target
+
+[Service]
+User=tesla
+Group=tesla
+
+Type=forking
+PIDFile=/var/lib/teslad/teslad.pid
+
+ExecStart=/usr/bin/teslad -daemon -pid=/var/lib/teslad/teslad.pid \
+          -conf=/etc/tesla/tesla.conf -datadir=/var/lib/teslad
+
+ExecStop=-/usr/bin/tesla-cli -conf=/etc/tesla/tesla.conf \
+         -datadir=/var/lib/teslad stop
+
+Restart=always
+PrivateTmp=true
+TimeoutStopSec=60s
+TimeoutStartSec=2s
+StartLimitInterval=120s
+StartLimitBurst=5
+
+[Install]
+WantedBy=multi-user.target

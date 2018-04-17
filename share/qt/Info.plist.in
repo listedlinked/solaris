@@ -17,7 +17,7 @@
   <string>APPL</string>
 
   <key>CFBundleGetInfoString</key>
-  <string>@CLIENT_VERSION_MAJOR@.@CLIENT_VERSION_MINOR@.@CLIENT_VERSION_REVISION@, Copyright © 2009-@COPYRIGHT_YEAR@ The Bitcoin Core developers, 2014-@COPYRIGHT_YEAR@ The Dash Core developers, 2015-@COPYRIGHT_YEAR@ The Solaris Core developers</string>
+  <string>@CLIENT_VERSION_MAJOR@.@CLIENT_VERSION_MINOR@.@CLIENT_VERSION_REVISION@, Copyright © 2009-@COPYRIGHT_YEAR@ The Bitcoin Core developers, 2014-@COPYRIGHT_YEAR@ The Dash Core developers, 2015-@COPYRIGHT_YEAR@ The Tesla Core developers</string>
 
   <key>CFBundleShortVersionString</key>
   <string>@CLIENT_VERSION_MAJOR@.@CLIENT_VERSION_MINOR@.@CLIENT_VERSION_REVISION@</string>
@@ -29,10 +29,10 @@
   <string>????</string>
 
   <key>CFBundleExecutable</key>
-  <string>Solaris-Qt</string>
+  <string>Tesla-Qt</string>
 
   <key>CFBundleIdentifier</key>
-  <string>io.solaris.Solaris-Qt</string>
+  <string>io.tesla.Tesla-Qt</string>
 
   <key>CFBundleURLTypes</key>
   <array>
@@ -40,10 +40,10 @@
       <key>CFBundleTypeRole</key>
       <string>Editor</string>
       <key>CFBundleURLName</key>
-      <string>io.solaris.SolarisPayment</string>
+      <string>io.tesla.TeslaPayment</string>
       <key>CFBundleURLSchemes</key>
       <array>
-        <string>solaris</string>
+        <string>tesla</string>
       </array>
     </dict>
   </array>
@@ -52,9 +52,9 @@
   <array>
     <dict>
       <key>UTTypeIdentifier</key>
-      <string>io.solaris.paymentrequest</string>
+      <string>io.tesla.paymentrequest</string>
       <key>UTTypeDescription</key>
-      <string>Solaris payment request</string>
+      <string>Tesla payment request</string>
       <key>UTTypeConformsTo</key>
       <array>
         <string>public.data</string>
@@ -62,10 +62,10 @@
       <key>UTTypeTagSpecification</key>
       <dict>
         <key>public.mime-type</key>
-        <string>application/x-solaris-payment-request</string>
+        <string>application/x-tesla-payment-request</string>
         <key>public.filename-extension</key>
         <array>
-          <string>solarispaymentrequest</string>
+          <string>teslapaymentrequest</string>
         </array>
       </dict>
     </dict>
@@ -78,7 +78,7 @@
       <string>Editor</string>
       <key>LSItemContentTypes</key>
       <array>
-        <string>io.solaris.paymentrequest</string>
+        <string>io.tesla.paymentrequest</string>
       </array>
       <key>LSHandlerRank</key>
       <string>Owner</string>
